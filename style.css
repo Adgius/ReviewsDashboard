@@ -9,7 +9,7 @@
 	--color-info-dark: #7d8da1;
 	--color-info-light: #dce1eb;
 	--color-dark: #363949;
-	--color-light: #rgba(132, 139, 200, 0.18);
+	--color-light: #e9eaf5;
 	--color-primary-variant: #111e88;
 	--color-dark-variant: #677483;
 	--color-background: #f6f6f9;
@@ -55,7 +55,7 @@ body {
 	width: 96%;
 	margin: 0 auto;
 	gap: 1.8rem;
-	grid-template-columns: 20rem auto 23rem;
+	grid-template-columns: 20rem auto 16rem;
 }
 
 a {
@@ -125,7 +125,6 @@ aside {
 }
 
 aside .top{
-	background: white;
 	display: flex;
 	aligh-items: center;
 	justify-content: space-between;
@@ -143,7 +142,6 @@ aside .close{
 
 /*	====================== SIDEBAR ==================== */
 aside .sidebar{
-	background: white;
 	display: flex;
 	flex-direction: column;
 	height: 86vh;
@@ -197,3 +195,42 @@ aside .sidebar a:hover {
 aside .sidebar a:hover span{
 	margin-left: 1rem;
 }
+
+/*	====================== MAIN ==================== */
+main{
+	margin-top: 1.8rem;
+}
+
+main .date {
+	display: inline-block;
+	background: var(--color-light);
+	border-radius: var(--border-radius-1);
+	margin-top: 1rem;
+	padding: 0.5rem 1.6rem;
+}
+
+main .date input[type='date'] {
+	background: transparent;
+	color: var(--color-dark);
+}
+
+
+.insights{
+	display: flex;
+	gap: 1.8rem;
+}
+
+.insights .left{
+	flex: 1;
+}
+.insights .right{
+	flex: 2;
+}
+.insights .left div {
+	background: var(--color-white);
+}
+.rating_total {
+	height: 10rem;
+	background: black;
+}
+/*	================================================ */
