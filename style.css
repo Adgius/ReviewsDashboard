@@ -221,16 +221,19 @@ main .date input[type='date'] {
 }
 
 .insights .left{
-	flex: 1;
+	width: 15rem;
 }
 .insights .right{
-	flex: 2;
+	flex: auto;
 }
 .insights .left div {
 	background: var(--color-white);
 }
-.rating_total {
-	height: 10rem;
-	background: black;
+
+.avg_score{
+	height: 20rem;
+}
+#rating_total {
+	height: 20rem;
 }
 /*	================================================ */
