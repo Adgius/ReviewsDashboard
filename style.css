@@ -221,9 +221,15 @@ main .date input[type='date'] {
 }
 
 .insights .left{
+	display: flex;
+	flex-direction: column;
 	width: 15rem;
+	gap: 1.8rem;
 }
 .insights .right{
+	display: flex;
+	flex-direction: column;
+	gap: 1.8rem;
 	flex: auto;
 }
 .insights .left div {
@@ -233,7 +239,14 @@ main .date input[type='date'] {
 .avg_score{
 	height: 20rem;
 }
-#rating_total {
+.rating_total {
 	height: 20rem;
+	background: var(--color-white);
 }
+
+.neg_total {
+	background: var(--color-white);
+	flex: auto;
+}
+
 /*	================================================ */

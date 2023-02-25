@@ -9,7 +9,7 @@
       rel="stylesheet">
     <!-- STYLESHEET -->
     <link rel="stylesheet" href="./style.css">
-	<script src="https://cdn.plot.ly/plotly-2.18.2.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -85,8 +85,12 @@
 					</div>
 				</div>
 				<div class="right">
-					<div id="rating_total"></div>
-					<div id="neg_total"></div>
+					<div class="rating_total">
+						<canvas id="rating_total"></canvas>						
+					</div>
+					<div class="neg_total">
+						<canvas id="neg_total"></canvas>
+					</div>
 				</div>
 			</div>
 		</main>
