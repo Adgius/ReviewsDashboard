@@ -29,7 +29,8 @@ new Chart(rating_total, {
 	type: 'line',
 	data: Summary_rating_setup,
 	options: {
-	responsive: true
+	responsive: true,
+  maintainAspectRatio: false,
 	},
 });
 
@@ -62,6 +63,7 @@ new Chart(neg_total, {
   type: 'line',
   data: neg_total_setup,
   options: {
-  responsive: true
+  responsive: true,
+  maintainAspectRatio: false,
   },
 });

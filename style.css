@@ -199,6 +199,7 @@ aside .sidebar a:hover span{
 /*	====================== MAIN ==================== */
 main{
 	margin-top: 1.8rem;
+		height: 100vh;
 }
 
 main .date {
@@ -218,35 +219,39 @@ main .date input[type='date'] {
 .insights{
 	display: flex;
 	gap: 1.8rem;
+	height: 80vh;
 }
 
-.insights .left{
+.insights > *{
 	display: flex;
 	flex-direction: column;
-	width: 15rem;
 	gap: 1.8rem;
 }
+
 .insights .right{
+	flex: 1 1 auto;
+}
+
+
+.insights >* > div {
+	flex: 1 1 auto;
+	height: 15rem;
+	background: var(--color-white);
+	padding: var(--card-padding);
+	border-radius: var(--card-border-radius);
+	margin-top: 1rem;
+	box-shadow: var(--box-shadow);
+	transition: all 300ms ease;
+}
+
+.insights >* > div:hover {
+	box-shadow: none;
+}
+
+.insights .left > div {
 	display: flex;
 	flex-direction: column;
-	gap: 1.8rem;
-	flex: auto;
-}
-.insights .left div {
-	background: var(--color-white);
 }
 
-.avg_score{
-	height: 20rem;
-}
-.rating_total {
-	height: 20rem;
-	background: var(--color-white);
-}
-
-.neg_total {
-	background: var(--color-white);
-	flex: auto;
-}
 
 /*	================================================ */
