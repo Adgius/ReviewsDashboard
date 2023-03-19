@@ -67,3 +67,28 @@ new Chart(neg_total, {
   maintainAspectRatio: false,
   },
 });
+
+
+/*_____________________NEGATIVE_PIE___________________*/
+
+const neg_score = document.getElementById('neg_score');
+const neg_score_setup = {
+	labels: ['Positive', 'Negative'],
+	datasets: [
+	  {
+	    label: 'Summary rating',
+	    data: [64, 36],
+      backgroundColor: [
+        'rgba(50, 205, 50, 0.7)',
+        'rgba(220, 20, 60, 0.7)']
+	  }
+	]
+}
+new Chart(neg_score, {
+	type: 'doughnut',
+	data: neg_score_setup,
+	options: {
+	responsive: true,
+  maintainAspectRatio: false,
+	},
+});

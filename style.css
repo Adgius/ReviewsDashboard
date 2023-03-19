@@ -232,6 +232,10 @@ main .date input[type='date'] {
 	flex: 1 1 auto;
 }
 
+.neg_score div{
+	height: 70%;
+}
+
 
 .insights >* > div {
 	flex: 1 1 auto;
