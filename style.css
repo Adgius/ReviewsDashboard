@@ -232,7 +232,7 @@ main .date input[type='date'] {
 	flex: 1 1 auto;
 }
 
-.neg_score div{
+.neg_score_graph{
 	height: 70%;
 }
 
@@ -252,10 +252,43 @@ main .date input[type='date'] {
 	box-shadow: none;
 }
 
-.insights .left > div {
-	display: flex;
-	flex-direction: column;
+.left > div > span{
+	padding: 0.5rem;
+	border-radius: 50%;
+	color: var(--color-white);
+	font-size: 2rem;
 }
 
+.avg_score > span{
+	background: var(--color-primary);
+}
 
+.neg_score > span{
+	background: var(--color-danger);
+}
+
+.avg_score h2{
+	margin-top: 5rem;
+	text-align: center;
+}
+.avg_score p{
+	text-align: center;
+}
+.avg_score p{
+	text-align: center;
+}
+
+.avg_score .change{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+.avg_score_g{
+	height: 3rem;
+}
+
+.avg_score_g canvas{
+	margin-left: 17%;
+}
 /*	================================================ */

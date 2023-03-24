@@ -43,8 +43,8 @@
 					<span class="material-icons-sharp">list_alt</span>
 					<h3>Table comments</h3>
 				</a>
-				<a href="#">
-					<span class="material-icons-sharp">grid_view</span>
+				<a href="#" id="Telegram">
+					<span class="material-icons-sharp">send</span>
 					<h3>Telegram</h3>
 				</a>																
 			</div>
@@ -59,16 +59,18 @@
 					<div class="avg_score">
 						<span class="material-icons-sharp">score</span>
 						<h2>Средняя оценка</h2>
-						<div class="score">
-							<p>4.79</p>
-						</div>
+						<p>4.79</p>
 						<div class="change">
 							<span class="material-icons-sharp">trending_up</span>
 							<p>0.05</p>
 						</div>
+						<div class="avg_score_g">
+							<canvas id="avg_score"></canvas>
+						</div>
 					</div>
 					<div class="neg_score">
-						<div>
+						<span class="material-icons-sharp">data_usage</span>
+						<div class="neg_score_graph">
 							<canvas id="neg_score"></canvas>
 						</div>
 						<h2>Процент негативных</h2>
