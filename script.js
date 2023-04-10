@@ -88,8 +88,11 @@ new Chart(neg_score, {
 	type: 'doughnut',
 	data: neg_score_setup,
 	options: {
-	responsive: true,
-  maintainAspectRatio: false,
+    plugins: {
+      legend: {display: false}
+    },
+    responsive: true,
+    maintainAspectRatio: false,
 	},
 });
 

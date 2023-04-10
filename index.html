@@ -57,26 +57,28 @@
 			<div class="insights">
 				<div class="left">
 					<div class="avg_score">
-						<span class="material-icons-sharp">score</span>
-						<h2>Средняя оценка</h2>
+						<div class="avg_score_title">	
+							<span class="material-icons-sharp">score</span>
+							<h2>Средняя оценка</h2>
+						</div>
+						<div class="avg_score_g">
+							<canvas id="avg_score"></canvas>
+						</div>
 						<p>4.79</p>
 						<div class="change">
 							<span class="material-icons-sharp">trending_up</span>
 							<p>0.05</p>
 						</div>
-						<div class="avg_score_g">
-							<canvas id="avg_score"></canvas>
-						</div>
 					</div>
 					<div class="neg_score">
-						<span class="material-icons-sharp">data_usage</span>
+						<div class="neg_score_title">
+							<span class="material-icons-sharp">data_usage</span>
+							<h2>Процент негативных</h2>
+						</div>
 						<div class="neg_score_graph">
 							<canvas id="neg_score"></canvas>
 						</div>
-						<h2>Процент негативных</h2>
-						<div class="score">
-							<p>36.07%</p>
-						</div>
+						<p>36.07%</p>
 						<div class="change">
 							<span class="material-icons-sharp">trending_down</span>
 							<p>-7.8%</p>
@@ -93,6 +95,40 @@
 				</div>
 			</div>
 		</main>
+		<div class="info-right">
+			<div class="right-gp">
+				<img src="./images/gp-logo.png" alt="">
+				<p>4.41</p>
+				<div class="right-change">
+					<span class="material-icons-sharp">trending_down</span>
+					<p>-0.01</p>
+				</div>		
+			</div>
+			<div class="right-as">
+				<img src="./images/app_store_logo.png" alt="">
+				<p>4.89</p>
+				<div class="right-change">
+					<span class="material-icons-sharp">trending_up</span>
+					<p>0.01</p>
+				</div>
+			</div>
+			<div class="right-ya">
+				<img src="./images/ya-logo.png" alt="">
+				<p>4.21</p>
+				<div class="right-change">
+					<span class="material-icons-sharp">trending_down</span>
+					<p>-0.23</p>
+				</div>
+			</div>
+			<div class="right-ga">
+				<img src="./images/GA-logo.png" alt="">
+				<p>4.86</p>
+				<div class="right-change">
+					<span class="material-icons-sharp">trending_up</span>
+					<p>0.02</p>
+				</div>
+			</div>
+		</div>
 	</div>
 </body>
 <script src="./script.js"></script>
