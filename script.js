@@ -154,3 +154,27 @@ new Chart(avg_score, {
   }
 }
 );
+
+
+/*_____________________ASIDE_BUTTONS____________________*/
+const btns = document.querySelectorAll(".sidebar > a")
+const windows = document.querySelectorAll("main>div:nth-child(n+3)")
+
+function change_aside(link) {
+    btns.forEach(function(x) {x.classList.remove('active')})
+    link.classList.add('active')
+}
+
+function change_main_window(link) {
+  const window = link.getAttribute('window_id')
+  windows.forEach(function(x) {x.style.display = 'none'})
+  document.getElementsByClassName(window)[0].style.display = 'flex'
+}
+
+
+btns.forEach(function(link) {
+  link.addEventListener("click", function() {
+    change_aside(link);
+    change_main_window(link);
+  })
+});

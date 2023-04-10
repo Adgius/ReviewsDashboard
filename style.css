@@ -126,7 +126,7 @@ aside {
 
 aside .top{
 	display: flex;
-	aligh-items: center;
+	align-items: center;
 	justify-content: space-between;
 	margin-top: 1.4rem;
 }
@@ -196,7 +196,7 @@ aside .sidebar a:hover span{
 	margin-left: 1rem;
 }
 
-/*	====================== MAIN ==================== */
+/*	====================== SUMMARY MAIN ==================== */
 main{
 	margin-top: 1.8rem;
 		height: 100vh;
@@ -379,4 +379,34 @@ main .date input[type='date'] {
 
 .right-ga .right-change *{
 	color: var(--color-success);
+}
+
+/*	====================== SOURCE ==================== */
+
+rating-source {
+	display: none;
+}
+
+/*	====================== COMMENTS ==================== */
+
+comments {
+	display: none;
+}
+
+/*	====================== PROBLEMS ==================== */
+
+problems {
+	display: none;
+}
+
+/*	====================== TABLE COMMENTS ==================== */
+
+table-comments {
+	display: none;
+}
+
+/*	====================== TELEGRAM ==================== */
+
+telegram {
+	display: none;
 }
