@@ -166,9 +166,20 @@ function change_aside(link) {
 }
 
 function change_main_window(link) {
-  const window = link.getAttribute('window_id')
-  windows.forEach(function(x) {x.style.display = 'none'})
-  document.getElementsByClassName(window)[0].style.display = 'flex'
+  const window_name = link.getAttribute('window_id');
+  w = document.getElementsByClassName(window_name)[0]
+  if (w.style.display == 'none') {
+    windows.forEach(function(x) {x.style.display = 'none'})
+    windows.forEach(function(x) {x.style.opacity = 0})
+    w.style.display = 'flex'
+    var op = 0
+    while (op <= 1) {
+      (function(op_){
+        setTimeout(() => w.style.opacity = op_, 100 + 100 * op)
+      })(op)
+      op += 0.1
+    }
+  }  
 }
 
 
