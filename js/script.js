@@ -157,6 +157,14 @@ new Chart(avg_score, {
 
 
 /*_____________________ASIDE_BUTTONS____________________*/
+
+document.querySelectorAll("a[href^='#']").forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+  });
+})
+
+
 const btns = document.querySelectorAll(".sidebar > a")
 const windows = document.querySelectorAll("main>div:nth-child(n+3)")
 
@@ -167,7 +175,9 @@ function change_aside(link) {
 
 function change_main_window(link) {
   const window_name = link.getAttribute('window_id');
+  console.log(window_name)
   w = document.getElementsByClassName(window_name)[0]
+  console.log(w)
   if (w.style.display == 'none') {
     windows.forEach(function(x) {x.style.display = 'none'})
     windows.forEach(function(x) {x.style.opacity = 0})

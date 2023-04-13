@@ -458,7 +458,8 @@ comments {
 .popup_content {
 	position: relative;
 	background-color: var(--color-white);
-	max-width: 50%;
+	max-width: 75rem;
+	max-height: 25rem;
 	font-size: 1.5rem;
 	border-radius: var(--border-radius-3);
 	transform: translate(0%, -100%);
