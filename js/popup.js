@@ -1,6 +1,11 @@
 const comments = document.querySelectorAll("#main-table-comments tr td:first-child");
 const body = document.querySelector('body');
+const help = document.querySelector('#help-query');
 
+
+help.addEventListener("click", function(e) {
+	popupOpen("BONJOUR MISCUSI")
+})
 
 if (comments.length > 0) {
 	for (let i = 0; i < comments.length; i++) {
