@@ -168,20 +168,28 @@ document.querySelectorAll("a[href^='#']").forEach(link => {
 const btns = document.querySelectorAll(".sidebar > a")
 const windows = document.querySelectorAll("main>div:nth-child(n+3)")
 
+var disp = new Map();
+disp.set("insights", 'flex').set("rating-source", 'grid')
+
+
+console.log(disp)
+
 function change_aside(link) {
     btns.forEach(function(x) {x.classList.remove('active')})
     link.classList.add('active')
 }
 
 function change_main_window(link) {
-  const window_name = link.getAttribute('window_id');
-  console.log(window_name)
+  let window_name = link.getAttribute('window_id');
   w = document.getElementsByClassName(window_name)[0]
-  console.log(w)
   if (w.style.display == 'none') {
     windows.forEach(function(x) {x.style.display = 'none'})
     windows.forEach(function(x) {x.style.opacity = 0})
-    w.style.display = 'flex'
+    if (disp.has(window_name)) {
+      w.style.display = disp.get(window_name)
+    } else {
+      w.style.display = 'block'
+    }
     var op = 0
     while (op <= 1) {
       (function(op_){
