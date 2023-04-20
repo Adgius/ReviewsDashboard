@@ -10,6 +10,7 @@
     <!-- STYLESHEET -->
     <link rel="stylesheet" href="./css/style.css">
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -95,10 +96,38 @@
 				</div>
 			</div>
 			<div class="rating-source" style="display: none;">
+				<!-- GP ------------------------------------->
 				<img src="./images/gp-logo.png" alt="">
-				<p>1.51</p>
-				<canvas id="avg_score"></canvas>
-				<canvas id="avg_score"></canvas>
+				<div class="rating-source_gp-score">
+					<canvas id="rating-source_gp-score"></canvas>
+				</div>
+				<div class="rating-source_gp-count">
+					<canvas id="rating-source_gp-count"></canvas>
+				</div>
+				<!-- AS ------------------------------------>
+				<img src="./images/app_store_logo.png" alt="">
+				<div>
+					<canvas id="rating-source_as-score"></canvas>
+				</div>
+				<div>
+					<canvas id="rating-source_as-count"></canvas>
+				</div>
+				<!-- YA ------------------------------------>
+				<img src="./images/ya-logo.png" alt="">
+				<div>
+					<canvas id="rating-source_ya-score"></canvas>
+				</div>
+				<div>
+					<canvas id="rating-source_ya-count"></canvas>
+				</div>
+				<!-- NPS ----------------------------------->
+				<img src="./images/GA-logo.png" alt="">
+				<div>
+					<canvas id="rating-source_ga-score"></canvas>
+				</div>
+				<div>
+					<canvas id="rating-source_ga-count"></canvas>
+				</div>
 			</div>
 			<div class="comments" style="display: none;">
 				<h1>There is nothing</h1>
@@ -207,6 +236,7 @@
 		</div>
 	</div>
 </body>
+<script src="./js/aside_buttons.js"></script>
 <script src="./js/script.js"></script>
 <script src="./js/popup.js"></script>
 </html>

@@ -156,54 +156,370 @@ new Chart(avg_score, {
 );
 
 
-/*_____________________ASIDE_BUTTONS____________________*/
+/*_____________________rating-source_gp-score____________________*/
 
-document.querySelectorAll("a[href^='#']").forEach(link => {
-  link.addEventListener('click', e => {
-    e.preventDefault();
-  });
-})
-
-
-const btns = document.querySelectorAll(".sidebar > a")
-const windows = document.querySelectorAll("main>div:nth-child(n+3)")
-
-var disp = new Map();
-disp.set("insights", 'flex').set("rating-source", 'grid')
-
-
-console.log(disp)
-
-function change_aside(link) {
-    btns.forEach(function(x) {x.classList.remove('active')})
-    link.classList.add('active')
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1) + min) / 100; // The maximum is inclusive and the minimum is inclusive
 }
 
-function change_main_window(link) {
-  let window_name = link.getAttribute('window_id');
-  w = document.getElementsByClassName(window_name)[0]
-  if (w.style.display == 'none') {
-    windows.forEach(function(x) {x.style.display = 'none'})
-    windows.forEach(function(x) {x.style.opacity = 0})
-    if (disp.has(window_name)) {
-      w.style.display = disp.get(window_name)
-    } else {
-      w.style.display = 'block'
+const generateArray = (length, min, max) => (
+  [...new Array(length)].map(() => getRandomIntInclusive(min * 100, max * 100))
+);
+
+x = new Array('2023-01-01', '2023-01-02', '2023-01-03', '2023-01-04',
+             '2023-01-05', '2023-01-06', '2023-01-07', '2023-01-08',
+             '2023-01-09', '2023-01-10', '2023-01-11', '2023-01-12',
+             '2023-01-13', '2023-01-14', '2023-01-15', '2023-01-16',
+             '2023-01-17', '2023-01-18', '2023-01-19', '2023-01-20',
+             '2023-01-21', '2023-01-22', '2023-01-23', '2023-01-24',
+             '2023-01-25', '2023-01-26', '2023-01-27', '2023-01-28',
+             '2023-01-29', '2023-01-30', '2023-01-31', '2023-02-01',
+             '2023-02-02', '2023-02-03', '2023-02-04', '2023-02-05',
+             '2023-02-06', '2023-02-07', '2023-02-08', '2023-02-09',
+             '2023-02-10', '2023-02-11', '2023-02-12', '2023-02-13',
+             '2023-02-14', '2023-02-15', '2023-02-16', '2023-02-17',
+             '2023-02-18', '2023-02-19', '2023-02-20', '2023-02-21',
+             '2023-02-22', '2023-02-23', '2023-02-24')
+
+const rating_source_gp_score = document.getElementById('rating-source_gp-score');
+var rating_source_gp_score_grad = rating_source_gp_score.getContext('2d').createLinearGradient(0, 150, 0, 0);
+rating_source_gp_score_grad.addColorStop(1, "rgba(242, 176, 89, 1)");
+rating_source_gp_score_grad.addColorStop(0, "rgba(242, 176, 89, 0)");
+
+const rating_source_gp_score_setup = {
+  labels: x,
+  datasets: [
+    {
+      label: 'Google Play average score',
+      data: generateArray(x.length, 4, 5),
+      pointStyle: false,
+      tension: 0.5,
+      fill: true,
+      borderColor: "rgba(242, 176, 89, 1)",
+      backgroundColor: rating_source_gp_score_grad,
     }
-    var op = 0
-    while (op <= 1) {
-      (function(op_){
-        setTimeout(() => w.style.opacity = op_, 100 + 100 * op)
-      })(op)
-      op += 0.1
-    }
-  }  
+  ]
 }
+new Chart(rating_source_gp_score, {
+  type: 'line',
+  data: rating_source_gp_score_setup,
+  options: {
+    scales: {
+      x: {
+        type: 'time',
+        time: {
+          displayFormats:{day: 'MMM dd'}
+        },
+        ticks: {maxTicksLimit: 5},
+        grid: {display: false},
+      },
+    },
+    plugins: {
+      legend: {display: false}
+    },  
+  responsive: true,
+  maintainAspectRatio: false,
+  },
+});
 
 
-btns.forEach(function(link) {
-  link.addEventListener("click", function() {
-    change_aside(link);
-    change_main_window(link);
-  })
+/*_____________________rating-source_gp-count____________________*/
+const rating_source_gp_count = document.getElementById('rating-source_gp-count');
+var rating_source_gp_count_grad = rating_source_gp_count.getContext('2d').createLinearGradient(0, 150, 0, 0);
+rating_source_gp_count_grad.addColorStop(1, "rgba(227, 138, 20, 1)");
+rating_source_gp_count_grad.addColorStop(0, "rgba(227, 138, 20, 0)");
+
+const rating_source_gp_count_setup = {
+  labels: x,
+  datasets: [
+    {
+      label: 'Google Play review counts',
+      data: generateArray(x.length, 50, 200),
+      pointStyle: false,
+      tension: 0.5,
+      fill: true,
+      borderColor: "rgba(227, 138, 20, 1)",
+      backgroundColor: rating_source_gp_score_grad,
+    }
+  ]
+}
+new Chart(rating_source_gp_count, {
+  type: 'line',
+  data: rating_source_gp_count_setup,
+  options: {
+    scales: {
+      x: {
+        type: 'time',
+        time: {
+          displayFormats:{day: 'MMM dd'}
+        },
+        ticks: {maxTicksLimit: 5},
+        grid: {display: false},
+      },
+    },
+    plugins: {
+      legend: {display: false}
+    },
+  responsive: true,
+  maintainAspectRatio: false,
+  },
+});
+
+
+/*_____________________rating-source_as-score____________________*/
+const rating_source_as_score = document.getElementById('rating-source_as-score');
+var rating_source_as_score_grad = rating_source_as_score.getContext('2d').createLinearGradient(0, 150, 0, 0);
+rating_source_as_score_grad.addColorStop(1, "rgba(116, 109, 252, 1)");
+rating_source_as_score_grad.addColorStop(0, "rgba(116, 109, 252, 0)");
+
+const rating_source_as_score_setup = {
+  labels: x,
+  datasets: [
+    {
+      label: 'None',
+      data: generateArray(x.length, 4, 5),
+      pointStyle: false,
+      tension: 0.5,
+      fill: true,
+      borderColor: "rgba(116, 109, 252, 1)",
+      backgroundColor: rating_source_as_score_grad,
+    }
+  ]
+}
+new Chart(rating_source_as_score, {
+  type: 'line',
+  data: rating_source_as_score_setup,
+  options: {
+    scales: {
+      x: {
+        type: 'time',
+        time: {
+          displayFormats:{day: 'MMM dd'}
+        },
+        ticks: {maxTicksLimit: 5},
+        grid: {display: false},
+      },
+    },
+    plugins: {
+      legend: {display: false}
+    },
+  responsive: true,
+  maintainAspectRatio: false,
+  },
+});
+
+
+/*_____________________rating-source_as-count____________________*/
+const rating_source_as_count = document.getElementById('rating-source_as-count');
+var rating_source_as_count_grad = rating_source_as_count.getContext('2d').createLinearGradient(0, 150, 0, 0);
+rating_source_as_count_grad.addColorStop(1, "rgba(62, 55, 195, 1)");
+rating_source_as_count_grad.addColorStop(0, "rgba(29, 17, 245, 0)");
+
+const rating_source_as_count_setup = {
+  labels: x,
+  datasets: [
+    {
+      label: 'None',
+      data: generateArray(x.length, 50, 200),
+      pointStyle: false,
+      tension: 0.5,
+      fill: true,
+      borderColor: "rgba(62, 55, 195, 1)",
+      backgroundColor: rating_source_as_score_grad,
+    }
+  ]
+}
+new Chart(rating_source_as_count, {
+  type: 'line',
+  data: rating_source_as_count_setup,
+  options: {
+    scales: {
+      x: {
+        type: 'time',
+        time: {
+          displayFormats:{day: 'MMM dd'}
+        },
+        ticks: {maxTicksLimit: 5},
+        grid: {display: false},
+      },
+    },
+    plugins: {
+      legend: {display: false}
+    },
+  responsive: true,
+  maintainAspectRatio: false,
+  },
+});
+
+/*_____________________rating-source_ya-score____________________*/
+const rating_source_ya_score = document.getElementById('rating-source_ya-score');
+var rating_source_ya_score_grad = rating_source_ya_score.getContext('2d').createLinearGradient(0, 150, 0, 0);
+rating_source_ya_score_grad.addColorStop(1, "rgba(234, 222, 10, 1)");
+rating_source_ya_score_grad.addColorStop(0, "rgba(234, 222, 10, 0)");
+
+const rating_source_ya_score_setup = {
+  labels: x,
+  datasets: [
+    {
+      label: 'None',
+      data: generateArray(x.length, 4, 5),
+      pointStyle: false,
+      tension: 0.5,
+      fill: true,
+      borderColor: "rgba(208, 198, 121, 1)",
+      backgroundColor: rating_source_ya_score_grad,
+    }
+  ]
+}
+new Chart(rating_source_ya_score, {
+  type: 'line',
+  data: rating_source_ya_score_setup,
+  options: {
+    scales: {
+      x: {
+        type: 'time',
+        time: {
+          displayFormats:{day: 'MMM dd'}
+        },
+        ticks: {maxTicksLimit: 5},
+        grid: {display: false},
+      },
+    },
+    plugins: {
+      legend: {display: false}
+    },
+  responsive: true,
+  maintainAspectRatio: false,
+  },
+});
+
+
+/*_____________________rating-source_ya-count____________________*/
+const rating_source_ya_count = document.getElementById('rating-source_ya-count');
+var rating_source_ya_count_grad = rating_source_as_count.getContext('2d').createLinearGradient(0, 150, 0, 0);
+rating_source_ya_count_grad.addColorStop(1, "rgba(234, 222, 10, 1)");
+rating_source_ya_count_grad.addColorStop(0, "rgba(234, 222, 10, 0)");
+
+const rating_source_ya_count_setup = {
+  labels: x,
+  datasets: [
+    {
+      label: 'None',
+      data: generateArray(x.length, 50, 200),
+      pointStyle: false,
+      tension: 0.5,
+      fill: true,
+      borderColor: "rgba(174, 172, 139, 1)",
+      backgroundColor: rating_source_ya_score_grad,
+    }
+  ]
+}
+new Chart(rating_source_ya_count, {
+  type: 'line',
+  data: rating_source_ya_count_setup,
+  options: {
+    scales: {
+      x: {
+        type: 'time',
+        time: {
+          displayFormats:{day: 'MMM dd'}
+        },
+        ticks: {maxTicksLimit: 5},
+        grid: {display: false},
+      },
+    },
+    plugins: {
+      legend: {display: false}
+    },
+  responsive: true,
+  maintainAspectRatio: false,
+  },
+});
+
+
+/*_____________________rating-source_ga-score____________________*/
+const rating_source_ga_score = document.getElementById('rating-source_ga-score');
+var rating_source_ga_score_grad = rating_source_ga_score.getContext('2d').createLinearGradient(0, 150, 0, 0);
+rating_source_ga_score_grad.addColorStop(1, "rgba(142, 236, 5, 1)");
+rating_source_ga_score_grad.addColorStop(0, "rgba(142, 236, 5, 0)");
+
+const rating_source_ga_score_setup = {
+  labels: x,
+  datasets: [
+    {
+      label: 'None',
+      data: generateArray(x.length, 4, 5),
+      pointStyle: false,
+      tension: 0.5,
+      fill: true,
+      borderColor: "rgba(181, 219, 126, 1)",
+      backgroundColor: rating_source_ga_score_grad,
+    }
+  ]
+}
+new Chart(rating_source_ga_score, {
+  type: 'line',
+  data: rating_source_ga_score_setup,
+  options: {
+    scales: {
+      x: {
+        type: 'time',
+        time: {
+          displayFormats:{day: 'MMM dd'}
+        },
+        ticks: {maxTicksLimit: 5},
+        grid: {display: false},
+      },
+    },
+    plugins: {
+      legend: {display: false}
+    },
+  responsive: true,
+  maintainAspectRatio: false,
+  },
+});
+
+
+/*_____________________rating-source_ya-count____________________*/
+const rating_source_ga_count = document.getElementById('rating-source_ga-count');
+var rating_source_ga_count_grad = rating_source_ga_count.getContext('2d').createLinearGradient(0, 150, 0, 0);
+rating_source_ga_count_grad.addColorStop(1, "rgba(142, 236, 5, 1)");
+rating_source_ga_count_grad.addColorStop(0, "rgba(142, 236, 5, 0)");
+
+const rating_source_ga_count_setup = {
+  labels: x,
+  datasets: [
+    {
+      label: 'None',
+      data: generateArray(x.length, 50, 200),
+      pointStyle: false,
+      tension: 0.5,
+      fill: true,
+      borderColor: "rgba(107, 159, 32, 1)",
+      backgroundColor: rating_source_ga_score_grad,
+    }
+  ]
+}
+new Chart(rating_source_ga_count, {
+  type: 'line',
+  data: rating_source_ga_count_setup,
+  options: {
+    scales: {
+      x: {
+        type: 'time',
+        time: {
+          displayFormats:{day: 'MMM dd'}
+        },
+        ticks: {maxTicksLimit: 5},
+        grid: {display: false},
+      },
+    },
+    plugins: {
+      legend: {display: false}
+    },
+  responsive: true,
+  maintainAspectRatio: false,
+  },
 });

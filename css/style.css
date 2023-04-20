@@ -386,8 +386,18 @@ main .date input[type='date'] {
 
 .rating-source {
 	display: grid;
-	grid-template-columns: 10% 10% 40% 40%;
-	grid-template-rows: repeat(4, 1fr);
+	grid-template-columns: 10% 42% 42%;
+	grid-template-rows: repeat(4, 20vh);
+	border-radius: var(--card-border-radius);
+	background-color: var(--color-white);
+	gap: 1rem;
+	padding: var(--pading-1);
+	margin-top: 2rem;
+}
+
+.rating-source img{
+	height: 4rem;
+	width: 4rem;
 }
 
 /*	====================== COMMENTS ==================== */
